@@ -1,0 +1,62 @@
+<div class="soporte"></div>
+
+<div id="loading", class="hidden"></div>
+
+<% @products.each do |product| %> 
+
+	<div class="contenido"> 
+
+		<div id="contenido_imagen"></div>
+
+		<div id="contenido_info">
+			<!--<label class="texto">ID: </label> <%=product.id %> <br> -->
+			<label class="texto">Nombre: </label> <%=product.name %> <br><br>
+			<label> Para: </label><br> 
+			<label class="texto">Marca: </label> <%=product.brand %> <br>
+			<label class="texto">Modelo: </label> <%=product.model %> <br>
+			<label class="texto">Año: </label> <%=product.year %> <br><br>
+			<label class="texto_verde">Precio: </label> $ <%=product.price %> <br>
+		</div>
+
+		<div id="contenido_existencia_ubicacion">
+			<!--<label class="texto">Cant. disp.: </label> <%=product.quantity %> <br><br>-->
+			<!--<label class="texto">Ubicación: </label> <%=product.location %> <br>-->
+			<table>
+				<tr>
+					<td align="center"> <label class="texto">Disp. en ▼ </label> </td>
+					<td align="center"> <label class="texto">Cant. ▼ </label> </td>
+				</tr>
+				<tr>
+
+					<% if product.location == @victoria %>
+						<td align="center"> <a href="https://goo.gl/2UvGs6" > <%=product.location %> </a> </td>
+					<% end %> 
+					
+					<% if product.location == @barrancos %>
+						<td align="center"> <a href="https://goo.gl/AL1oMC" > <%=product.location %> </a> </td>
+					<% end %> 
+
+					<% if product.location == @sanalona %>
+						<td align="center"> <a href="https://goo.gl/gzV3lM" > <%=product.location %> </a> </td>
+					<% end %> 
+
+					<% if product.location == @lombardo %>
+						<td align="center"> <a href="https://goo.gl/Mlg5G8" > <%=product.location %> </a> </td>
+					<% end %> 
+
+					<% if product.location == @calzada %>
+						<td align="center"> <a href="https://goo.gl/8Zm9mn" > <%=product.location %> </a> </td>
+					<% end %> 
+
+					<% if product.location == @navolato %>
+						<td align="center"> <a href="https://goo.gl/gzV3lM" > <%=product.location %> </a> </td>
+					<% end %> 
+
+					<td align="center"> <%=product.quantity %> </td>
+				</tr>
+			</table>
+		</div>
+		
+	</div>
+
+<% end %>

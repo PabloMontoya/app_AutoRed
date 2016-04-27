@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Catálogo AutoRed</title>
+	<link href='https://fonts.googleapis.com/css?family=Roboto:400,900' rel='stylesheet' type='text/css'>
+  	<%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  	<%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  	<%= csrf_meta_tags %>
+</head>
+
+<body>
+
+<div id="general">
+		<div class="soporte">
+			<div id="header">
+				<div id="mask"></div>
+				<div id="login"></div>
+				<%= link_to image_tag("logoautored-ok.jpg", :class => "formato"), "http://www.autored.mx" %>
+				<div id="cuadro_texto_y_boton" align="center">
+					
+					<input class="textbox" type="text" placeholder="Escriba aquí la refacción a buscar..">
+					<a id="myButton">Buscar</a>
+				</div>
+			</div>
+		</div>
+		
+		<div id="filtros">
+			<h5 id="titulo_filtro"> Filtros </h5>
+
+			<div id="contenedor_select_marca">
+					<h6 class="etiqueta_filtro"> marca: </h6>
+
+					<div class="styled-select">
+						<select>
+
+							<option> escoja una..
+
+					    	<% @select_brands.each do |x| %> 
+								<option> <%= x %>
+							<% end %>
+
+					   </select>
+					</div>
+
+			</div>
+
+			<div id="contenedor_select_modelo">
+				<h6 class="etiqueta_filtro"> modelo: </h6>
+					<div class="styled-select">
+					    <select>
+
+					        <option>escoja uno..
+					      
+					      	<% @select_models.each do |x| %> 
+								<option> <%= x %>
+							<% end %>
+
+					    </select>
+					</div>
+			</div>
+
+			<div id="contenedor_select_anho">
+				<h6 class="etiqueta_filtro"> año: </h6>
+				<div class="styled-select">
+				    <select>
+
+				    	<option>escoja uno..
+
+				    	<% @select_years.each do |x| %> 
+							<option> <%= x %>
+						<% end %>
+
+				    </select>
+				</div>
+			</div>
+
+			<div id="contenedor_silder_precio">
+				<div>
+					<h6 class="etiquetas_filtro_precio_izq"> precio min.</h6>
+					<h6 class="etiquetas_filtro_precio_der"> precio max.</h6>
+					
+					<h6 class="var_precio_min"> $<%=@precio_min%> </h6>
+					<input type="text" id="valueSlider" class="var_precio_max" />
+				</div>
+				
+				<div class="slider">
+					<div class="emptyprogress"></div>
+					<div class="progress"></div>
+					<div class="indicator"></div>
+				</div>
+			</div>
+	
+		</div>
+
+</div>
+
+<%= yield %>
+
+</body>
+</html>
