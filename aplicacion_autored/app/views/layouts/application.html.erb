@@ -22,8 +22,13 @@
 				<%= link_to image_tag("logoautored-ok.jpg", :class => "formato"), "http://www.autored.mx" %>
 				<div id="cuadro_texto_y_boton" align="center">
 					
-					<input class="textbox" type="text" placeholder="Escriba aquí la refacción a buscar..">
-					<a id="myButton">Buscar</a>
+					<!--<input class="textbox" type="text" placeholder="Escriba aquí la refacción a buscar..">--> 
+					
+						<%= form_for(@product_name) do |f| %>
+							<%= f.text_field :search_name, class: 'textbox',:placeholder => "Escriba aquí la refacción a buscar.." %>
+							<a id="myButton">Buscar</a>
+						<% end %>
+					
 				</div>
 			</div>
 		</div>
