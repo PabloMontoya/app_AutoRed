@@ -9,7 +9,6 @@ class Autored1Controller < ApplicationController
     @precio_max = Product.maximum("price")
     
     #Selects para popular los combobox en filtros
-    @select_names = Product.uniq.pluck(:name)
     @select_brands = Product.uniq.pluck(:brand)
     @select_models = Product.uniq.pluck(:model)
     @select_years = Product.uniq.pluck(:year)

@@ -25,7 +25,7 @@
 					<!--<input class="textbox" type="text" placeholder="Escriba aquí la refacción a buscar..">--> 
 					
 						<%= form_for(@product_name) do |f| %>
-							<%= f.text_field :name, class: 'textbox', :placeholder => 'Escriba aquí la refacción a buscar..' %>
+							<%= f.text_field :name, class: 'textbox', id: 'product_search_by_name', data: {autocomplete_source: Product.order(:name).map(&:name).uniq}, :placeholder => 'Escriba aquí la refacción a buscar..' %>
 							<a id="myButton">Buscar</a>
 						<% end %>
 
