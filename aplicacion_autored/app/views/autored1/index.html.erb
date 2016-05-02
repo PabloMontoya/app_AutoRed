@@ -15,7 +15,7 @@
 			<label class="texto">Marca: </label> <%=product.brand %> <br>
 			<label class="texto">Modelo: </label> <%=product.model %> <br>
 			<label class="texto">Año: </label> <%=product.year %> <br><br>
-			<label class="texto_verde">Precio: </label> $ <%=product.price %> <br>
+			<label class="texto_verde">Precio: </label> $<%=product.price %> <br>
 		</div>
 
 		<div id="contenido_existencia_ubicacion">
@@ -23,33 +23,33 @@
 			<!--<label class="texto">Ubicación: </label> <%=product.location %> <br>-->
 			<table>
 				<tr>
-					<td align="center"> <label class="texto">Disp. en ▼</label> </td>
+					<td align="center"> <label class="texto">Disp.en ▼</label> </td>
 					<td align="center"> <label class="texto">Cant. ▼</label> </td>
 				</tr>
 				<tr>
 
-					<% if product.location == @victoria %>
-						<td align="center"> <a href="https://goo.gl/2UvGs6" > <%=product.location %> </a> </td>
+					<% if product.location == 'Victoria' %>
+						<td align="center"> <a href="https://goo.gl/2UvGs6" target="_blank" class="link2maps" > <%=product.location %> </a> </td>
 					<% end %> 
 					
 					<% if product.location == @barrancos %>
-						<td align="center"> <a href="https://goo.gl/ljp0NB" > <%=product.location %> </a> </td>
+						<td align="center"> <a href="https://goo.gl/ljp0NB" target="_blank" class="link2maps" > <%=product.location %> </a> </td>
 					<% end %> 
 
 					<% if product.location == @sanalona %>
-						<td align="center"> <a href="https://goo.gl/gzV3lM" > <%=product.location %> </a> </td>
+						<td align="center"> <a href="https://goo.gl/gzV3lM" target="_blank" class="link2maps" > <%=product.location %> </a> </td>
 					<% end %> 
 
 					<% if product.location == @lombardo %>
-						<td align="center"> <a href="https://goo.gl/zLRm4r" > <%=product.location %> </a> </td>
+						<td align="center"> <a href="https://goo.gl/zLRm4r" target="_blank" class="link2maps" > <%=product.location %> </a> </td>
 					<% end %> 
 
 					<% if product.location == @calzada %>
-						<td align="center"> <a href="https://goo.gl/wzzOej" > <%=product.location %> </a> </td>
+						<td align="center"> <a href="https://goo.gl/wzzOej" target="_blank" class="link2maps" > <%=product.location %> </a> </td>
 					<% end %> 
 
 					<% if product.location == @navolato %>
-						<td align="center"> <a href="https://goo.gl/IWoj3j" > <%=product.location %> </a> </td>
+						<td align="center"> <a href="https://goo.gl/IWoj3j" target="_blank" class="link2maps" > <%=product.location %> </a> </td>
 					<% end %> 
 
 					<td align="center"> <%=product.quantity %> </td>

@@ -38,8 +38,8 @@ div#loading{
 	position: fixed;
 	margin-left: 335px;
 	#margin-top: 3.5px;
-	width: 1010px;
-	height: 480px;
+	width: 650px;
+	height: 460px;
 	background: url(loading.gif) no-repeat center white;
 	background-size: 10%;
 	opacity: 0.8;
@@ -263,23 +263,24 @@ div#contenedor_silder_precio{
 div.contenido{
 	background-color: white;
 	margin: auto;
-	margin-left: 400px;
+	margin-left: 30%;
 	margin-top: 15px;
 	margin-bottom: 5px;
-	width: 900px;
+	width: 570px;
 	height: 200px;
 	border: 2px solid;
 	border-color:  rgb(100,100,100);
 	border-radius: 10px;
 	#word-break: break-all;
     #word-wrap: break-word;
+    cursor: pointer;
 }
 
 div#contenido_imagen{
 	background: url(producto.png) no-repeat center;
 	background-size: 80%;
-	width: 25%;
-	height: 90%;
+	width: 225px;
+	height: 180px;
 	#border-right: 2px solid #EEE;
 	padding:10px ;
 	margin-left: -15px;
@@ -297,10 +298,10 @@ div#contenido_info{
 
 div#contenido_existencia_ubicacion{
 	padding-left: 10px;
-	margin-left: 52%;
-	margin-top: -20%;
+	margin-left: 400px;
+	margin-top: -183px;
 	#float: right;
-	width: 15.5%;
+	width: 17%;
 	height: 90%;
 }
 
@@ -375,6 +376,24 @@ a#myButton:hover {
 a#myButton:active {
 	position:relative;
 	top:1px;
+}
+
+a.link2maps:link{
+	 text-decoration: none; 
+	 text-decoration: bold;
+}
+
+a.link2maps:hover{
+	text-shadow:   
+	-.04px -0.4px 0 rgb(0,93,255),
+    0.4px -0.4px 0 rgb(0,93,255),
+   	-0.4px 0.4px 0 rgb(0,93,255),
+    0.4px 0.4px 0 rgb(0,93,255);
+}
+
+a.link2maps:visited{
+	font-style: bold;
+	color: rgb(0,93,255);
 }
 
 .texto{
