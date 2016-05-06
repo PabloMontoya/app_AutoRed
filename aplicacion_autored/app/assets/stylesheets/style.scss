@@ -24,6 +24,174 @@ div#header {
 	#border-bottom: 4px solid #111;
 }
 
+div#footer {
+	width: 85%;
+	height: 120px;
+	margin-left: 9%;
+	margin-top: 10px;
+	position: relative;
+	background-color: rgb(0,93,255);
+
+	border: 3px solid black;
+	border-bottom: none;
+	border-top-right-radius: 4em;
+	border-top-left-radius: 4em;
+
+	#-webkit-box-shadow: inset -10px 48px 57px -11px rgba(255,255,255,1);
+    #-moz-box-shadow: inset -10px 48px 57px -11px rgba(255,255,255,1);
+    #box-shadow: inset -10px 48px 57px -11px rgba(255,255,255,1);
+}
+div#footer_imagenes {
+	width: 85%;
+	height: 35px;
+	margin-left: 7.5%;
+	margin-top: 15px;
+	position: absolute;
+	background-color: transparent;
+}
+
+#container_rss {
+	width: 35px;
+	height: 100%;
+	margin-left: 23%;
+	background: url(footer_icon_rss.png) center no-repeat;
+	background-size: 90%;
+	cursor: pointer;
+}
+
+#rss {
+	width: 35px;
+	height: 100%;
+	margin-left: 0%;
+	background: url(footer_icon_rss.png) center no-repeat;
+	background-size: 90%;
+	cursor: pointer;	
+}
+
+#container_rss:hover{
+	opacity: 0.6; 
+}
+
+#container_facebook {
+	width: 35px;
+	height: 100%;
+	margin-left: 33%;
+	margin-top: -35px;
+	background: url(footer_icon_facebook.png) center no-repeat;
+	background-size: 90%;
+	cursor: pointer;
+}
+
+#facebook {
+	width: 35px;
+	height: 100%;
+	margin-left: 0%;
+	margin-top: -35px;
+	background: url(footer_icon_facebook.png) center no-repeat;
+	background-size: 90%;
+	cursor: pointer;
+}
+
+#container_facebook:hover{
+	opacity: 0.6; 
+}
+
+#container_youtube {
+	width: 35px;
+	height: 100%;
+	margin-left: 43%;
+	background: url(footer_icon_youtube.png) center no-repeat;
+	background-size: 90%;
+	cursor: pointer;
+}
+
+#youtube {
+	width: 35px;
+	height: 100%;
+	margin-left: 0%;
+	margin-top: -35px;
+	background: url(footer_icon_youtube.png) center no-repeat;
+	background-size: 90%;
+	cursor: pointer;
+}
+
+#container_youtube:hover{
+	opacity: 0.6; 
+}
+
+#phone {
+	width: 35px;
+	height: 100%;
+	margin-left: 53%;
+	margin-top: -35px;
+	background: url(footer_icon_phone.png) center no-repeat;	
+	background-size: 90%;
+	cursor: pointer;
+}
+
+#phone:hover{
+	opacity: 0.6; 
+}
+
+#container_mail {
+	width: 35px;
+	height: 100%;
+	margin-left: 63%;
+	background: url(footer_icon_mail.png) center no-repeat;
+	background-size: 90%;
+	cursor: pointer;
+}
+
+#mail {
+	width: 35px;
+	height: 100%;
+	margin-left: 0%;
+	margin-top: -35px;
+	background: url(footer_icon_mail.png) center no-repeat;
+	background-size: 90%;
+	cursor: pointer;
+}
+
+#container_mail:hover{
+	opacity: 0.6; 
+}
+
+#container_page {
+	width: 35px;
+	height: 100%;
+	margin-left: 73%;
+	background: url(footer_icon_page.png) center no-repeat;
+	background-size: 90%;
+	cursor: pointer;
+}
+
+#page {
+	width: 35px;
+	height: 100%;
+	margin-left: 0%;
+	margin-top: -35px;
+	background: url(footer_icon_page.png) center no-repeat;
+	background-size: 90%;
+	cursor: pointer;
+}
+
+#container_page:hover{
+	opacity: 0.6; 
+}
+
+#footer_info {
+	margin-top: 55px;
+	margin-left: 25%;
+	height: 60px;
+	width: 50%;
+	text-align: center;
+}
+
+.footer_text {
+	font-size: 1em;
+	font-style: italic;
+}
+
 .soporte{
 	width: all;
 	height: 200px;
@@ -67,7 +235,7 @@ div#filtros{
 	width: 250px;
 	height: 415px;
 	margin-left: 75px;
-	margin-top: -60px;
+	margin-top: -80px;
 	background-color: white;
     word-wrap: break-word;
 
@@ -78,8 +246,6 @@ div#filtros{
 
     border-radius: 15px;
 }
-
-
 
 h5#titulo_filtro{
 	margin: auto;
