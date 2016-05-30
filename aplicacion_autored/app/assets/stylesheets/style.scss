@@ -142,7 +142,7 @@ div#contenedor_select_anho{
    margin-left: 12px;
    margin-top: 10px;
    overflow: hidden;
-   background: url(down_arrow_select.jpg) no-repeat right #ddd;
+   #background: url(down_arrow_select.jpg) no-repeat right #ddd;
    border: 1px solid #ccc;
    }
 
@@ -426,8 +426,9 @@ div#footer {
 	width: 85%;
 	height: 120px;
 	margin-left: 9%;
-	margin-top: 10px;
+	#margin-top: 10px;
 	position: relative;
+	bottom: 0px;
 	background-color: rgb(0,93,255);
 
 	border: 3px solid black;

@@ -2,9 +2,9 @@ class Autored1Controller < ApplicationController
 
   def index
     #Prueba: mostrar todos los productos en index
-    #@products = Product.all
+    @products1 = Product.all
+    @products2 = Product.where(brand: 'Honda', model: 'Accord', year: '2007')
     
-    @products = Product.where(brand: 'Honda', model: 'Accord')
     #Prueba: mostrar la variable de precio minimo/maximo en filtros que posteriormente cambiara dependiendo los parámetros de búsqueda
     @precio_min = Product.minimum("price")
     @precio_max = Product.maximum("price")
@@ -25,5 +25,11 @@ class Autored1Controller < ApplicationController
     #Variable de clase para el text_field del layout
     @product_name = Product.name
   end
+
+  def filtros
+    @marca = params[:brand]
+    concat @marca
+  end
+
 
 end

@@ -24,13 +24,9 @@
 						
 						<!--<input class="textbox" type="text" placeholder="Escriba aquí la refacción a buscar..">--> 
 						
-							<%= form_for(@product_name) do |f| %>
-								<%= f.text_field :name, class: 'textbox', id: 'product_search_by_name', data: {autocomplete_source: Product.order(:name).map(&:name).uniq}, :placeholder => 'Escriba aquí la refacción a buscar..' %>
-								<a id="myButton">Buscar</a>
-							<% end %>
-
+						<%= text_field_tag :name, nil, class: 'textbox', id: 'product_search_by_name', data: {autocomplete_source: Product.order(:name).map(&:name).uniq}, :placeholder => 'Escriba aquí la refacción a buscar..' %>
+						<a id="myButton">Buscar</a>
 							
-						
 					</div>
 				</div>
 			</div>
@@ -43,8 +39,6 @@
 
 						<div class="styled-select">
 							<select id="select_marca">
-
-								<option> escoja una..
 
 								<% @select_brands.sort! { |a, b| a.downcase <=> b.downcase } %>
 						    	<% @select_brands.each do |x| %> 
@@ -61,8 +55,6 @@
 						<div class="styled-select">
 						    <select>
 
-						        <option>escoja uno..
-						      
 						        <% @select_models.sort! { |a, b| a.downcase <=> b.downcase } %>
 						      	<% @select_models.each do |x| %> 
 									<option> <%= x %>
@@ -77,9 +69,7 @@
 					<div class="styled-select">
 					    <select>
 
-					    	<option>escoja uno..
-
-					    	<% @select_years.sort! { |a, b| a.to_i <=> b.to_i } %>
+					    	<% @select_years.sort! { |a, b| b.to_i <=> a.to_i } %>
 					    	<% @select_years.each do |x| %> 
 								<option> <%= x %>
 							<% end %>
