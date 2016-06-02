@@ -77,7 +77,7 @@ div#filtros{
 	margin-left: 5%;
 	margin-top: -80px;
 	#background-color: rgb(0,93,255);
-	background-image: -webkit-linear-gradient(top, rgb(0,93,255), rgb(0,93,255) 35%, transparent 35%, transparent 100%);
+	background-image: -webkit-linear-gradient(top, rgb(0,93,255), rgb(0,93,255) 20%, transparent 20%, transparent 100%);
     word-wrap: break-word;
 
     border: 2px solid #111;
@@ -112,46 +112,34 @@ div#contenedor_select_id{
 }
 
 div#contenedor_select_marca{
-	#display: inline-block;
-	border-top: 3px solid #EEE;
 	margin-top: -10px;
 	min-height: 50px;
-	height: 90px;
 	width: 100%;
 	background-color: white;
-	#position: absolute;
 }
 
 div#contenedor_select_modelo{
-	border-top: 3px solid #EEE;
 	width: 100%;
 	margin-top: 10px;
 	background-color: transparent;
-	#position: absolute;
-	#display: inline-block;
 }
 
 div#contenedor_select_anho{
-	border-top: 3px solid #EEE;
 	width: 100%;
 	margin-top: 10px;
 	background-color: transparent;
-	#position: absolute;
-	#display: inline-block;
 }
 
 div#contenedor_botones{
 	border-top: 3px solid #EEE;
 	width: 100%;
-	margin-top: 10px;
+	margin-top: 15px;
 	background-color: transparent;
-	#position: absolute;
-	#display: inline-block;
 }
 
 div#botones {
-	margin-top: 10px;
-	#margin-left: 20%;
+	align-self: center;
+	margin-top: 15px;
 }
 
 ul {

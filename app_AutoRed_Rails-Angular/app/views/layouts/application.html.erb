@@ -5,6 +5,7 @@
     <title>Catálogo en línea</title>
     <link href='https://fonts.googleapis.com/css?family=Roboto:400,900' rel='stylesheet' type='text/css'>
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <%= stylesheet_link_tag    'application', media: 'all' %>
     <%= javascript_include_tag 'application' %>
     <%= csrf_meta_tags %>
@@ -78,7 +79,7 @@
                 <div id="contenedor_botones">
                   <div id="botones" align="center">
                     <button type="submit" class="btn btn-primary" id="search">Buscar</button>
-                    <button type="reset" value="Reset" ng-click="resetFilter()" class="btn btn-danger" id="clear">Limpiar</button>
+                    <button type="reset" value="Reset" ng-click="clear()" class="btn btn-danger" id="clear">Limpiar</button>
                   </div>
                 </div>
 

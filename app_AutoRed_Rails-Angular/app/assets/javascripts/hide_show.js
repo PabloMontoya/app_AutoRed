@@ -27,5 +27,14 @@ $(document).on('ready', function(){
 		elemento4.css('display', 'none');
 	});
 
+	$('#form').keypress(function() {
+		var elemento1 = $('.contenido').css('display');
+		var elemento2 = $('#loading');
+
+		if (elemento1 === 'block') {
+			elemento2.css('display', 'block')
+			setTimeout(function(){ elemento2.css('display','none'); },1000)
+		} 
+	})
 
 });
