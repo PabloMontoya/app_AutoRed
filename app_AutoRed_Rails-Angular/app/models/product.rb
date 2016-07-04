@@ -1,6 +1,3 @@
 class Product < ActiveRecord::Base
-
-	def as_json(options = {})
-	end
-
+	self.table_name = "productos"
 end

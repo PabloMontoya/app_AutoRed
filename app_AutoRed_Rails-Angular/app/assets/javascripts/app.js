@@ -69,16 +69,10 @@ angular.module('AppAutored', ['ui.router', 'ui.bootstrap'])
 
             $scope.products = products.products;
 
-            //  if ($scope.filtro = {}) {
-            //     alert('No se encontraron resultados.');
-            //  }
-
             $scope.clear =function(){
                 $scope.filtro = {};
             };
 
         }
     ])
-
-
 ;

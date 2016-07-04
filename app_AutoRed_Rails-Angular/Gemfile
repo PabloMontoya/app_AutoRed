@@ -1,10 +1,29 @@
 source 'https://rubygems.org'
 
-
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.5.2'
 # Use sqlite3 as the database for Active Record
 gem 'sqlite3'
+# mysql gem
+gem 'mysql2', '~> 0.4.4'
+
+#tiny tds gem
+gem 'tiny_tds', '~> 0.7.0'
+#dependencies
+gem 'connection_pool', '~> 2.2'
+gem 'rake', '~> 11.2', '>= 11.2.2'
+gem 'rake-compiler', '~> 1.0', '>= 1.0.1'
+gem 'rake-compiler-dock', '~> 0.5.2'
+
+# sql server gem
+gem 'activerecord-sqlserver-adapter', '~> 4.2', '>= 4.2.4'
+
+#Angular
+gem 'angularjs-rails', '~> 1.5', '>= 1.5.6'
+gem 'angularjs-rails-resource'
+gem 'angular-rails-templates'
+gem 'angular_rails_csrf'
+
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
 # Use Uglifier as compressor for JavaScript assets
@@ -19,6 +38,9 @@ gem 'responders', '~> 2.2'
 gem 'jquery-rails', '~> 4.1', '>= 4.1.1'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
+
+#gem for secure shell tunnel for remote database access
+gem 'net-ssh'
 
 # Use Unicorn as the app server
 # gem 'unicorn'

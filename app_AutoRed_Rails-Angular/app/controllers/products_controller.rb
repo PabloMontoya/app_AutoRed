@@ -1,8 +1,11 @@
 class ProductsController < ApplicationController
+  def index
+    @product = Product.first
 
-	def index
-		@products = Product.all
-    	respond_with Product.all
-  	end
+    respond_to do |format|
+      format.json { render json: Product.first }
+      format.html
+    end
 
+  end
 end
