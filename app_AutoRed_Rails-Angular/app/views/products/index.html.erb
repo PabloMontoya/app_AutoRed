@@ -1,0 +1,123 @@
+<div ng-app="AppAutored">
+<div ng-controller="ProductsCtrl">
+	<script src="//cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.2.10/angular-ui-router.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-bootstrap/0.14.1/ui-bootstrap-tpls.js"></script>
+
+	   <!-- <ui-view></ui-view> -->
+
+	   <!-- <script type="text/ng-template" id="/home.html"> -->
+	        <div id="general">
+
+	            <div class="soporte">
+	                <div id="header">
+	                  <div id="contenedor_logo"> <a href="https://www.autored.mx" target="_blank"> <div class="logo"></div> </a> </div>
+	                </div>
+	            </div>
+
+	            <div id="filtros">
+	                <h5 id="titulo_filtro" align="center"> Filtros </h5>
+
+	                <form id="form" style="margin-top:30px;" autocomplete="off">
+
+	                <!--
+	                <div id="contenedor_select_id">
+	                  <div>
+	                    <ul class="input-list style-1 clearfix">
+	                      <div class="contenedor_select_id">
+	                          <input type="text" placeholder="Código (opcional)" ng-model="filtro.cod_prod"></input> 
+	                      </div>                                      
+	                    </ul>
+	                  </div>
+	                </div>
+					-->
+
+	                <div id="contenedor_select_marca">
+	                    <h6 class="etiqueta_filtro"> Código: </h6>
+	                    <div>
+	                        <ul class="input-list style-1 clearfix">
+	                            <div>
+	                              <input type="text" id="text_brand" placeholder="codigo" ng-model="filtro.cod_prod" uib-typeahead="product.cod_prod for product in products | filter:$viewValue | limitTo:5"></input>
+	                            </div>                                      
+	                        </ul>
+	                    </div>
+	                </div>
+
+	                <div id="contenedor_select_modelo">
+	                    <h6 class="etiqueta_filtro"> Nombre: </h6>
+	                    <div>
+	                        <ul class="input-list style-1 clearfix">
+	                            <div>
+	                              <input type="text" id="text_model" placeholder="nombre" ng-model="filtro.nombre" uib-typeahead="product.nombre for product in products | filter:$viewValue | limitTo:5"></input>
+	                            </div>
+	                        </ul>
+	                    </div>
+	                </div>
+
+	                <div id="contenedor_select_anho">
+	                    <h6 class="etiqueta_filtro"> Descripción: </h6>
+	                    <div>
+	                        <ul class="input-list style-1 clearfix">
+	                            <div>
+	                              <input type="text" id="text_year" placeholder="descripcion" ng-model="filtro.descripcion" uib-typeahead="product.descripcion for product in products | filter:$viewValue | limitTo:5"></input>
+	                            </div>
+	                        </ul>
+	                    </div>
+	                </div>
+
+	                <div id="contenedor_botones">
+	                  <div id="botones" align="center">
+	                    <button type="submit" class="btn btn-primary" id="search">Buscar</button>
+	                    <button type="reset" value="Reset" ng-click="clear()" class="btn btn-danger" id="clear">Limpiar</button>
+	                  </div>
+	                </div>
+
+	                </form>
+	            </div>
+
+	              <div id="loading"></div>
+
+	              <div>
+	                  <div ng-repeat=" x in products | filter:filtro" class="contenido">
+
+	                      <div id="contenido_imagen"></div>
+
+	                      <div id="contenido_info">
+	                          <label class="texto">Código: </label> {{x.cod_prod}} <br>
+	                          <label class="texto">Nombre: </label> {{x.nombre}} <br>
+	                          <label class="texto">Descripcion: </label> {{x.descripcion}} <br>
+
+	                      </div>
+
+	                      <div id="contenido_existencia_ubicacion">
+	                          <table>
+
+	                            <tr>
+	                              <td align="center"> <label class="texto">Disp.en ▼</label> </td>
+	                              <td align="center"> <label class="texto">Cant. ▼</label> </td>
+	                            </tr>
+
+	                            <tr>
+	                                
+	                              <td ng-if= "x.location == 'Victoria'" align="center"> <a href="https://goo.gl/2UvGs6" target="_blank" class="link2maps" > {{x.location}} </a> </td>
+	                              <td ng-if= "x.location == 'Barrancos'" align="center"> <a href="https://goo.gl/ljp0NB" target="_blank" class="link2maps" > {{x.location}} </a> </td>
+	                              <td ng-if= "x.location == 'Sanalona'" align="center"> <a href="https://goo.gl/gzV3lM" target="_blank" class="link2maps" > {{x.location}} </a> </td>
+	                              <td ng-if= "x.location == 'Lombardo'" align="center"> <a href="https://goo.gl/zLRm4r" target="_blank" class="link2maps" > {{x.location}} </a> </td>
+	                              <td ng-if= "x.location == 'Calzada'" align="center"> <a href="https://goo.gl/wzzOej" target="_blank" class="link2maps" > {{x.location}} </a> </td>
+	                              <td ng-if= "x.location == 'Navolato'" align="center"> <a href="https://goo.gl/IWoj3j" target="_blank" class="link2maps" > {{x.location}} </a> </td>
+
+	                              <td align="center"> {{x.quantity}} </td>
+
+	                            </tr>
+
+	                          </table>
+	                      </div>
+
+	                  </div>
+	              </div>
+
+	              
+	              
+	        </div> <!-- Aqui cierra el div general -->
+	    <!-- </script> -->
+	</div> <!-- div de ng-controller ProductsCtrl-->
+</div>

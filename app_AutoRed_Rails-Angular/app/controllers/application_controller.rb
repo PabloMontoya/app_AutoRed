@@ -6,7 +6,7 @@ class ApplicationController < ActionController::Base
   respond_to :json
 
   def angular
-  	  render 'layouts/application'
+  	  render 'products/index'
   end
 
   def set_csrf_cookie_for_ng

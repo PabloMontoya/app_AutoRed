@@ -1,11 +1,9 @@
 class ProductsController < ApplicationController
+  respond_to :json
+
   def index
-    @product = Product.first
-
-    respond_to do |format|
-      format.json { render json: Product.first }
-      format.html
-    end
-
+    @product = Product.select("cod_prod, descripcion, linea_producto").first(100)
+    respond_with(@product)
   end
+
 end
