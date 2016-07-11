@@ -1,10 +1,9 @@
 Rails.application.routes.draw do
 
-  resources :products, :lineasprods, defaults: { format: 'json' }
+  resources :products, defaults: { format: 'json' }
   root to: 'application#angular'
 
-  get 'index' => "products#index"
-  get 'index' => "lineasprods#index"
+  get 'index/products/:codigo' => "products#index"
 
   
   # The priority is based upon order of creation: first created -> highest priority.

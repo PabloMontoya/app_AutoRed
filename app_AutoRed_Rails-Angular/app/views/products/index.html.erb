@@ -1,5 +1,5 @@
 <div ng-app="AppAutored">
-<div ng-controller="ProductsCtrl">
+<div ng-controller="MainCtrl">
 	<script src="//cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.2.10/angular-ui-router.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-bootstrap/0.14.1/ui-bootstrap-tpls.js"></script>
 
@@ -36,29 +36,29 @@
 	                    <div>
 	                        <ul class="input-list style-1 clearfix">
 	                            <div>
-	                              <input type="text" id="text_brand" placeholder="codigo" ng-model="filtro.cod_prod" uib-typeahead="product.cod_prod for product in products | filter:$viewValue | limitTo:5"></input>
+	                              <input type="text" id="text_brand" placeholder="codigo" ng-model="model_codigo" uib-typeahead="product.cod_prod for product in products | filter:$viewValue | limitTo:5"></input>
 	                            </div>                                      
 	                        </ul>
 	                    </div>
 	                </div>
 
 	                <div id="contenedor_select_modelo">
-	                    <h6 class="etiqueta_filtro"> Nombre: </h6>
+	                    <h6 class="etiqueta_filtro"> Marca: </h6>
 	                    <div>
 	                        <ul class="input-list style-1 clearfix">
 	                            <div>
-	                              <input type="text" id="text_model" placeholder="nombre" ng-model="filtro.nombre" uib-typeahead="product.nombre for product in products | filter:$viewValue | limitTo:5"></input>
+	                              <input type="text" id="text_model" placeholder="marca" ng-model="filtro.nombre" uib-typeahead="product.nombre for product in products | filter:$viewValue | limitTo:5"></input>
 	                            </div>
 	                        </ul>
 	                    </div>
 	                </div>
 
 	                <div id="contenedor_select_anho">
-	                    <h6 class="etiqueta_filtro"> Descripción: </h6>
+	                    <h6 class="etiqueta_filtro"> Modelo: </h6>
 	                    <div>
 	                        <ul class="input-list style-1 clearfix">
 	                            <div>
-	                              <input type="text" id="text_year" placeholder="descripcion" ng-model="filtro.descripcion" uib-typeahead="product.descripcion for product in products | filter:$viewValue | limitTo:5"></input>
+	                              <input type="text" id="text_year" placeholder="modelo" ng-model="filtro.descripcion" uib-typeahead="product.descripcion for product in products | filter:$viewValue | limitTo:5"></input>
 	                            </div>
 	                        </ul>
 	                    </div>
@@ -66,7 +66,7 @@
 
 	                <div id="contenedor_botones">
 	                  <div id="botones" align="center">
-	                    <button type="submit" class="btn btn-primary" id="search">Buscar</button>
+	                    <button type="submit" class="btn btn-primary" ng-click="getProducts()" id="search">Buscar</button>
 	                    <button type="reset" value="Reset" ng-click="clear()" class="btn btn-danger" id="clear">Limpiar</button>
 	                  </div>
 	                </div>
@@ -77,14 +77,15 @@
 	              <div id="loading"></div>
 
 	              <div>
-	                  <div ng-repeat=" x in products | filter:filtro" class="contenido">
+	                  <div ng-repeat=" x in products" class="contenido">
 
 	                      <div id="contenido_imagen"></div>
 
 	                      <div id="contenido_info">
 	                          <label class="texto">Código: </label> {{x.cod_prod}} <br>
-	                          <label class="texto">Nombre: </label> {{x.nombre}} <br>
-	                          <label class="texto">Descripcion: </label> {{x.descripcion}} <br>
+	                          <label class="texto">Marca: </label> {{x.marca}} <br>
+	                          <label class="texto">Modelo: </label> {{x.modelo}} <br>
+	                          <label class="texto">Año: </label>  {{x.anhio}}
 
 	                      </div>
 

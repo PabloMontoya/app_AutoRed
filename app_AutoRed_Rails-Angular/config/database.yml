@@ -26,6 +26,8 @@ development:
   database: BMSAutored240315
   username: sistemas
   password: 789321
+  pool: 5
+  timeout: 5000000
 
 # Warning: The database defined as "test" will be erased and
 # re-generated from your development database when you run "rake".

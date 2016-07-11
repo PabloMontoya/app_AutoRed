@@ -9,6 +9,11 @@ class ApplicationController < ActionController::Base
   	  render 'products/index'
   end
 
+  def show
+    render 'products/index'
+  end
+
+
   def set_csrf_cookie_for_ng
     cookies['XSRF-TOKEN'] = form_authenticity_token if protect_against_forgery?
   end

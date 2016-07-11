@@ -1,11 +1,11 @@
 $(document).on('ready', function(){
 
 	$('#search').on('click',function(){
-
+/*
 		if ($.trim($("#text_brand").val()) === "" && $.trim($("#text_model").val()) === "" && $.trim($("#text_year").val()) === "") {
 	        alert('Llena por lo menos uno de los campos.');
 	        return false;
-	    } else{
+	    } else{ */
 			var elemento = $('.contenido');
 			var elemento2 = $('#filtros');
 			var elemento3 = $('#loading');
@@ -14,7 +14,7 @@ $(document).on('ready', function(){
 			elemento2.css('width','19%'),
 			elemento3.css('display', 'block'),
 			elemento4.css('display', 'block')
-			setTimeout(function(){ $('#loading').css('display','none'); },1000)}
+			setTimeout(function(){ $('#loading').css('display','none'); },1000)/*}*/
 	});
 		
 
