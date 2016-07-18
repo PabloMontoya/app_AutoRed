@@ -32,11 +32,11 @@
 					-->
 
 	                <div id="contenedor_select_marca">
-	                    <h6 class="etiqueta_filtro"> Código: </h6>
+	                    		  <h6 class="etiqueta_filtro"> Código: </h6>
 	                    <div>
 	                        <ul class="input-list style-1 clearfix">
 	                            <div>
-	                              <input type="text" id="text_brand" placeholder="codigo" ng-model="model_codigo" uib-typeahead="product.cod_prod for product in products | filter:$viewValue | limitTo:5"></input>
+	                              <input type="text" placeholder="(opcional)" ng-model="filtro.cod_prod" uib-typeahead="product.cod_prod for product in products | filter:$viewValue | limitTo:5"></input>
 	                            </div>                                      
 	                        </ul>
 	                    </div>
@@ -47,7 +47,9 @@
 	                    <div>
 	                        <ul class="input-list style-1 clearfix">
 	                            <div>
-	                              <input type="text" id="text_model" placeholder="marca" ng-model="filtro.nombre" uib-typeahead="product.nombre for product in products | filter:$viewValue | limitTo:5"></input>
+	                              <select class="soflow" name="marca_combo" ng-model="filtro.marca" ng-options="marca for marca in marcas" ng-change="combo_modelos(filtro.marca)">
+	                              	<option value="">Escoge una..</option>
+	                              </select>
 	                            </div>
 	                        </ul>
 	                    </div>
@@ -58,7 +60,22 @@
 	                    <div>
 	                        <ul class="input-list style-1 clearfix">
 	                            <div>
-	                              <input type="text" id="text_year" placeholder="modelo" ng-model="filtro.descripcion" uib-typeahead="product.descripcion for product in products | filter:$viewValue | limitTo:5"></input>
+	                              <select class="soflow" name="modelo_combo" ng-model="filtro.modelo" ng-options="modelo for modelo in modelos" ng-change="combo_anhios(filtro.modelo)">
+	                              	<option value="">Escoge uno..</option>
+	                              </select>
+	                            </div>
+	                        </ul>
+	                    </div>
+	                </div>
+
+	                <div id="contenedor_select_anho">
+	                    <h6 class="etiqueta_filtro"> Año: </h6>
+	                    <div>
+	                        <ul class="input-list style-1 clearfix">
+	                            <div>
+	                              <select class="soflow" name="anhio_combo" ng-model="filtro.anhio" ng-options="anhio for anhio in anhios">
+	                              	<option value="">Escoge uno..</option>
+	                              </select>
 	                            </div>
 	                        </ul>
 	                    </div>
@@ -77,15 +94,15 @@
 	              <div id="loading"></div>
 
 	              <div>
-	                  <div ng-repeat=" x in products" class="contenido">
+	                  <div ng-repeat=" product in products | filter:filtro"  class="contenido">
 
 	                      <div id="contenido_imagen"></div>
 
 	                      <div id="contenido_info">
-	                          <label class="texto">Código: </label> {{x.cod_prod}} <br>
-	                          <label class="texto">Marca: </label> {{x.marca}} <br>
-	                          <label class="texto">Modelo: </label> {{x.modelo}} <br>
-	                          <label class="texto">Año: </label>  {{x.anhio}}
+	                          <label class="texto">Código: </label> {{product.cod_prod}} <br>
+	                          <label class="texto">Descripción: </label> {{product.descripcion}} <br>
+	                          <label class="texto">Línea: </label> {{product.linea}} <br>
+	                          <label class="texto">Sistema: </label> {{product.sistema}} 
 
 	                      </div>
 
@@ -93,7 +110,7 @@
 	                          <table>
 
 	                            <tr>
-	                              <td align="center"> <label class="texto">Disp.en ▼</label> </td>
+	                              <td align="center"> <label class="texto">Disp. en ▼</label> </td>
 	                              <td align="center"> <label class="texto">Cant. ▼</label> </td>
 	                            </tr>
 

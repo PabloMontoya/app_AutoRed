@@ -73,9 +73,9 @@ div#filtros{
 	#width: 19%;
 	width: 90%; 
 	min-width: 110px;
-	height: 64%;
+	height: 75%;
 	margin-left: 5%;
-	margin-top: -80px;
+	margin-top: -90px;
 	#background-color: rgb(0,93,255);
 	background-image: -webkit-linear-gradient(top, rgb(0,93,255), rgb(0,93,255) 20%, white 20%, white 100%);
     word-wrap: break-word;
@@ -107,12 +107,12 @@ h5#titulo_filtro{
 div#contenedor_select_id{
 	position: fixed;
 	margin-left: 37%;
-	margin-top: -60px;
+	margin-top: -50px;
 	display: none;
 }
 
 div#contenedor_select_marca{
-	margin-top: -10px;
+	margin-top: 0;
 	min-height: 50px;
 	width: 100%;
 	background-color: white;
@@ -121,25 +121,25 @@ div#contenedor_select_marca{
 div#contenedor_select_modelo{
 	width: 100%;
 	margin-top: 10px;
-	background-color: whitewhite;
+	background-color: white;
 }
 
 div#contenedor_select_anho{
 	width: 100%;
 	margin-top: 10px;
-	background-color: whitewhite;
+	background-color: white;
 }
 
 div#contenedor_botones{
 	border-top: 3px solid #EEE;
 	width: 100%;
 	margin-top: 15px;
-	background-color: whitewhite;
+	background-color: transparent;
 }
 
 div#botones {
 	align-self: center;
-	margin-top: 15px;
+	margin-top: 7px;
 }
 
 ul {
@@ -149,29 +149,50 @@ ul {
 }
 
 input[type="text"] {
-  display: block;
-  margin: 0;
-  width: 100%;
-  font-family: sans-serif;
-  font-size: 18px;
-  appearance: none;
-  box-shadow: none;
-  border-radius: none;
+   display: block;
+   margin: 0;
+   width: 100%;
+#   font-family: sans-serif;
+   font-size: 18px;
+   appearance: none;
+   box-shadow: none;
+   border-radius: none;
 }
 input[type="text"]:focus {
-  outline: none;
+   outline: none;
 }
 .style-1 input[type="text"] {
-  margin-right: -5px;
-  border: solid 1px #dcdcdc;
-  transition: box-shadow 0.3s, border 0.3s;
+   margin-right: -5px;
+   border: solid 1px #dcdcdc;
+   transition: box-shadow 0.3s, border 0.3s;
 }
 .style-1 input[type="text"]:focus,
 .style-1 input[type="text"].focus {
-  border: solid 1px rgb(0,93,255);
-  box-shadow: 0 0 5px 1px rgb(0,93,255);
+   border: solid 1px rgb(0,93,255);
+   box-shadow: 0 0 5px 1px rgb(0,93,255);
 }
 
+.soflow {
+   -webkit-appearance: button;
+   -webkit-border-radius: 2px;
+   -webkit-box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.1);
+   -webkit-padding-end: 20px;
+   -webkit-padding-start: 2px;
+   -webkit-user-select: none;
+   background-image: url(http://i62.tinypic.com/15xvbd5.png), -webkit-linear-gradient(#FAFAFA, #F4F4F4 40%, #E5E5E5);
+   background-position: 97% center;
+   background-repeat: no-repeat;
+   border: 1px solid #AAA;
+   color: #555;
+   font-size: inherit;
+   #margin: 20px;
+   overflow: hidden;
+   padding: 5px 10px;
+   text-overflow: ellipsis;
+   white-space: nowrap;
+   width: 100%;
+   cursor: pointer;
+}
 
 .etiqueta_filtro{
 	letter-spacing: 1px;
@@ -198,7 +219,7 @@ div.contenido{
 	margin-left: 30%;
 	min-width: 413px;
 	width: 42%;
-	height: 200px;
+	height: 235px;
 	border: 2px solid;
 	border-color:  rgb(100,100,100);
 	border-radius: 10px;
@@ -228,18 +249,20 @@ div#contenido_info{
 	margin-left: 40%;
 	margin-top: -175px;
 	#float: right;
-	width: 150px;
+	width: 170px;
 	height: 90%;
 	#display: inline-block;
+	background-color: transparent;
 }
 
 div#contenido_existencia_ubicacion{
 	padding-left: 10px;
 	margin-left: 70%;
-	margin-top: -183px;
+	margin-top: -197px;
 	#float: right;
-	width: 17%;
+	width: 110px;
 	height: 90%;
+	background-color: transparent;
 }
 
 a.link2maps:link{

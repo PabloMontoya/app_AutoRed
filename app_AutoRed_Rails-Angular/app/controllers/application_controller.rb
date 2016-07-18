@@ -6,7 +6,7 @@ class ApplicationController < ActionController::Base
   respond_to :json
 
   def angular
-  	  render 'products/index'
+  	render 'products/index'
   end
 
   def show
