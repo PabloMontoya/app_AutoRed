@@ -9,7 +9,7 @@ class ProductsController < ApplicationController
 							   INNER JOIN marcas_equipos    me   ON me.marca_equipos   = pe.marca_equipos
 							   INNER JOIN modelos_equipos   mode ON pe.marca_equipos   = mode.marca_equipos AND mode.modelo_equipos = pe.modelo_equipos
 							   INNER JOIN años_equipos      ae   ON pe.año_equipos     = ae.año_equipos")
-					   .first(1000)
+					   .first(2000)
 
     respond_with(@products)
   end

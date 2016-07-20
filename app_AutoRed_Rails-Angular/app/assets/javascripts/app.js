@@ -34,7 +34,17 @@ var myApp = angular.module('AppAutored', ['ngResource','ui.router', 'ui.bootstra
             'Brand',
             function($scope, Product, Brand) {
 
-                //$scope.getProducts = function () {
+                function sortArray(arr) {
+                    var tmp = [];
+                    for (var i = 0; i < arr.length; i++) {
+                        if (tmp.indexOf(arr[i]) == -1) {
+                            tmp.push(arr[i]);
+                        }
+                    }
+                    return tmp;
+                }
+
+                $scope.getProducts = function () {
                     $scope.products = Product.index({cod_prod: $scope.model_codigo});
 
                     $scope.brands   = Brand.index(function(){ 
@@ -44,7 +54,7 @@ var myApp = angular.module('AppAutored', ['ngResource','ui.router', 'ui.bootstra
                             $scope.marcas.push(brands.marca)
                         })
                     });
-                //}
+                }
 
                 $scope.combo_modelos = function(marcaSeleccionada){
                     var modelos = []
@@ -53,7 +63,7 @@ var myApp = angular.module('AppAutored', ['ngResource','ui.router', 'ui.bootstra
                             modelos.push(producto.modelo)
                         }
                     })
-                    $scope.modelos = modelos
+                    $scope.modelos = sortArray(modelos).sort();
                 };    
 
                 $scope.combo_anhios = function(modeloSeleccionado){
@@ -63,8 +73,7 @@ var myApp = angular.module('AppAutored', ['ngResource','ui.router', 'ui.bootstra
                             anhios.push(producto.anhio)
                         }
                     })
-                    console.log(anhios)
-                    $scope.anhios = anhios
+                    $scope.anhios = sortArray(anhios).sort(function(a, b){return b-a});
                 };
 
                 $scope.clear = function(){

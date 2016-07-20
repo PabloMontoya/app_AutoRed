@@ -32,7 +32,10 @@
 					-->
 
 	                <div id="contenedor_select_marca">
-	                    		  <h6 class="etiqueta_filtro"> Código: </h6>
+	                   <!-- <label> -->
+	                    	<h6 class="etiqueta_filtro"> Código: </h6>
+	                    	<!--<button> Código </button>-->
+	                    <!-- </label> -->
 	                    <div>
 	                        <ul class="input-list style-1 clearfix">
 	                            <div>
@@ -43,11 +46,11 @@
 	                </div>
 
 	                <div id="contenedor_select_modelo">
-	                    <h6 class="etiqueta_filtro"> Marca: </h6>
+	                    <h6 class="etiqueta_filtro"> Marca: </h6>*
 	                    <div>
 	                        <ul class="input-list style-1 clearfix">
 	                            <div>
-	                              <select class="soflow" name="marca_combo" ng-model="filtro.marca" ng-options="marca for marca in marcas" ng-change="combo_modelos(filtro.marca)">
+	                              <select class="soflow" id="marca_combo" ng-model="filtro.marca" ng-options="marca for marca in marcas" ng-change="combo_modelos(filtro.marca)">
 	                              	<option value="">Escoge una..</option>
 	                              </select>
 	                            </div>
@@ -56,11 +59,11 @@
 	                </div>
 
 	                <div id="contenedor_select_anho">
-	                    <h6 class="etiqueta_filtro"> Modelo: </h6>
+	                    <h6 class="etiqueta_filtro"> Modelo: </h6>*
 	                    <div>
 	                        <ul class="input-list style-1 clearfix">
 	                            <div>
-	                              <select class="soflow" name="modelo_combo" ng-model="filtro.modelo" ng-options="modelo for modelo in modelos" ng-change="combo_anhios(filtro.modelo)">
+	                              <select class="soflow" id="modelo_combo" ng-model="filtro.modelo" ng-options="modelo for modelo in modelos" ng-change="combo_anhios(filtro.modelo)">
 	                              	<option value="">Escoge uno..</option>
 	                              </select>
 	                            </div>
@@ -69,11 +72,11 @@
 	                </div>
 
 	                <div id="contenedor_select_anho">
-	                    <h6 class="etiqueta_filtro"> Año: </h6>
+	                    <h6 class="etiqueta_filtro"> Año: </h6>*
 	                    <div>
 	                        <ul class="input-list style-1 clearfix">
 	                            <div>
-	                              <select class="soflow" name="anhio_combo" ng-model="filtro.anhio" ng-options="anhio for anhio in anhios">
+	                              <select class="soflow" id="anhio_combo" ng-model="filtro.anhio" ng-options="anhio for anhio in anhios">
 	                              	<option value="">Escoge uno..</option>
 	                              </select>
 	                            </div>
@@ -100,9 +103,9 @@
 
 	                      <div id="contenido_info">
 	                          <label class="texto">Código: </label> {{product.cod_prod}} <br>
-	                          <label class="texto">Descripción: </label> {{product.descripcion}} <br>
 	                          <label class="texto">Línea: </label> {{product.linea}} <br>
-	                          <label class="texto">Sistema: </label> {{product.sistema}} 
+	                          <label class="texto">Sistema: </label> {{product.sistema}} <br>
+	                          <label class="texto">Descripción: </label> {{product.descripcion}} 
 
 	                      </div>
 
