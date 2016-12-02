@@ -1,0 +1,15 @@
+{
+  "name": "app_AutoRed",
+  "scripts": {
+  },
+  "env": {
+  },
+  "formation": {
+  },
+  "addons": [
+
+  ],
+  "buildpacks": [
+
+  ]
+}
