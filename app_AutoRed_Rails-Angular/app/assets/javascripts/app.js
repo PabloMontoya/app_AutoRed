@@ -1,23 +1,16 @@
+/*
+ *    app by
+ *      
+ *      @pabloMontoya
+ *
+ */
+
+
 var myApp = angular.module('AppAutored', ['ngResource','ui.router', 'ui.bootstrap'])
 
-/*
-        myApp.filter('unique', function() {
-            return function(input, key) {
-                var unique = {};
-                var uniqueList = [];
-                for (var i = 0; i < input.length; i++) {
-                    if (typeof unique[input[i][key]] == "undefined") {
-                        unique[input[i][key]] = "";
-                        uniqueList.push(input[i]);
-                    }
-                }
-                return uniqueList;
-            };
-        });
-*/
 
         myApp.factory("Product", function($resource) {
-          return $resource("products/:cod_prod/:marca/:modelo/:anhio", { cod_prod: '@cod_prod', marca: '@marca', modelo: '@modelo', anhio: '@anhio'}, {
+          return $resource("products/:cod_prod/", { cod_prod: '@cod_prod'}, {
             index:   { method: 'GET', isArray: true, responseType: 'json' }
           });
         })
@@ -30,10 +23,12 @@ var myApp = angular.module('AppAutored', ['ngResource','ui.router', 'ui.bootstra
 
         myApp.controller('MainCtrl', [
             '$scope',
+            '$http',
             'Product',
             'Brand',
-            function($scope, Product, Brand) {
+            function($scope, $http, Product, Brand) {
 
+                //Método para ordenar un arreglo
                 function sortArray(arr) {
                     var tmp = [];
                     for (var i = 0; i < arr.length; i++) {
@@ -44,43 +39,161 @@ var myApp = angular.module('AppAutored', ['ngResource','ui.router', 'ui.bootstra
                     return tmp;
                 }
 
-                $scope.getProducts = function () {
-                    $scope.products = Product.index({cod_prod: $scope.model_codigo});
 
-                    $scope.brands   = Brand.index(function(){ 
-                        $scope.marcas = [];
+                
+                //Selecciona muchos productos mediante marca, modelo y año del auto usando ajax $http.get request
+                $scope.getProducts = function() {
+                    var http;
+                    var productos = [];
+                    var model_codigo = $scope.model_codigo;
+                    http = {
+                        method: "GET",
+                        url: "http://localhost:3000/products/cod_prod/", 
+                        params: {
+                            cod_prod: $scope.model_codigo, marca_equipos: $scope.model_marca, modelo_equipos: $scope.model_modelo, año_equipos: $scope.model_anhio
+                        }
+                    };
 
-                        $scope.brands.forEach(function(brands) {
-                            $scope.marcas.push(brands.marca)
-                        })
+                    // Se inyecta todas las productos en el arreglo para la vista ($scope.productos)
+                    return $http(http).success(function(response) {
+                        console.log(response);
+                        $scope.product = response;
+
+                        response.forEach(function(producto){
+                                if (!productos[producto]) {
+                                    productos.push(producto)
+                                }
+                            })
+                            
+                            $scope.productos = sortArray(productos).sort();
+                            console.log($scope.productos);
                     });
-                }
-
-                $scope.combo_modelos = function(marcaSeleccionada){
-                    var modelos = []
-                    $scope.products.forEach(function(producto){
-                        if (producto.marca === marcaSeleccionada && !modelos[marcaSeleccionada]) {
-                            modelos.push(producto.modelo)
-                        }
-                    })
-                    $scope.modelos = sortArray(modelos).sort();
-                };    
-
-                $scope.combo_anhios = function(modeloSeleccionado){
-                    var anhios = []
-                    $scope.products.forEach(function(producto){
-                        if (producto.modelo === modeloSeleccionado && !anhios[modeloSeleccionado]) {
-                            anhios.push(producto.anhio)
-                        }
-                    })
-                    $scope.anhios = sortArray(anhios).sort(function(a, b){return b-a});
                 };
 
+                //Selecciona un producto mediante el código del producto usando ajax $http.get request
+                $scope.getProductsByCode = function() {
+                    var http;
+                    var productos = [];
+                    http = {
+                        method: "GET",
+                        url: "http://localhost:3000/bycodes/", 
+                        params: {
+                            cod_prod: $scope.model_codigo
+                        }
+                    };
+
+                    // Se inyecta todas las productos en el arreglo para la vista ($scope.productos)
+                    return $http(http).success(function(response) {
+                        console.log(response);
+                        $scope.product = response;
+
+                        response.forEach(function(producto){
+                                if (!productos[producto]) {
+                                    productos.push(producto)
+                                }
+                            })
+                            
+                            $scope.productos = sortArray(productos).sort();
+                            console.log($scope.productos);
+                    });
+                };
+
+                //inyecta todas las marcas en el arreglo para la vista ($scope.marcas)
+                $scope.brands = Brand.index(function(){ 
+                    $scope.marcas = [];
+
+                    $scope.brands.forEach(function(brands) {
+                        $scope.marcas.push(brands.marca)
+                    })
+                    $scope.marcas = sortArray($scope.marcas).sort();
+                });
+
+
+                  //selecciona todos los modelos de una marca mediante ajax $http.get request
+                  $scope.getModels = function() {
+                        var http;
+                        var modelos = []
+                        http = {
+                            method: "GET",
+                            url: "http://localhost:3000/models/",
+                            params: {
+                                marca_equipos: $scope.model_marca
+                            }
+                        };
+
+                        //Se inyectan todos los modelos que vienen en el arreglo de objetos al arreglo para la vista ($scope.modelos)
+                        return $http(http).success(function(response) {
+                            //console.log(response);
+
+                            response.forEach(function(modelo){
+                                if (!modelos[modelo.modelo]) {
+                                    modelos.push(modelo.modelo)
+                                }
+                            })
+                            $scope.modelos = sortArray(modelos).sort();
+                            //console.log(modelos);
+                        });
+                    };                        
+
+                //selecciona todos los años de un modelo mediante ajax $http.get request
+                $scope.getYears = function(){
+                    var http;
+                    var anhios = []
+                    http = {
+                        method: "GET",
+                        url: "http://localhost:3000/years/",
+                        params: {
+                            modelo_equipos: $scope.model_modelo
+                        }
+                    };
+
+                    //Se inyectan todos los años que vienen en el arreglo de objetos al arreglo para la vista ($scope.anhios)
+                    return $http(http).success(function(response) {
+                        //console.log(response);
+
+                        response.forEach(function(anhio){
+                            if (!anhios[anhio.anhio]) {
+                                anhios.push(anhio.anhio)
+                            }
+                        })
+                        //ordenar de mayor a menor
+                        $scope.anhios = sortArray(anhios).sort(function(a, b){return b-a});
+                    });
+                };
+
+                $scope.checkstring = function(str){
+                    if ($.trim(str) == "MATRIZ") {
+                        return 1
+                    }else if ($.trim(str) == "VICTORIA") {
+                        return 2
+                    }else if ($.trim(str) == "BARRANCOS") {
+                        return 3
+                    }else if ($.trim(str) == "LOMA LINDA") {
+                        return 4
+                    }else if ($.trim(str) == "LOMBARDO TOLEDANO") {
+                        return 5
+                    }else if ($.trim(str) == "SANALONA") {
+                        return 6
+                    }else if ($.trim(str) == "CALZADA") {
+                        return 7
+                    }else if ($.trim(str) == "NAVOLATO") {
+                        return 8
+                    }else if ($.trim(str) == "TELEMARKETING") {
+                        return 9
+                    }else if ($.trim(str) == "DIRECTOS (CHECAR TIENDAS)") {
+                        return 10
+                    }
+                }
+
+                //Método para limpiar los combobox
                 $scope.clear = function(){
-                    $scope.filtro = {};
                     $scope.modelos = [];
                     $scope.anhios = [];
                 };
+
+                $scope.toggle_element = function(element,speed){
+                    $element.toggle(speed);
+                }
 
             }
         ]);

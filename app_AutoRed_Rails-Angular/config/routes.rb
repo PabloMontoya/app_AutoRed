@@ -1,7 +1,11 @@
 Rails.application.routes.draw do
 
-  resources :products, :brands, defaults: { format: 'json' }
+  resources :products, :bycodes, :brands, :models, :years, defaults: { format: 'json' }
   root to: 'application#angular'
+
+  get 'bycodes/index' => "bycodes#index"
+  get 'models/index' => "models#index"
+
 
   #get 'index/products/:codigo' => "products#index"
 

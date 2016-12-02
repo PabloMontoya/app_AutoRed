@@ -1,7 +1,7 @@
-class ProductsController < ApplicationController
+class BycodesController < ApplicationController
   respond_to :json
 
-  def show
+  def index
   
     @products = Product.select("productos.cod_prod, productos.descripcion, lp.nombre as linea, se.nombre as sistema, 
                                 me.nombre as marca, mode.nombre as modelo, ae.año_equipos as anhio, esta.nombre as establecimiento ,
@@ -14,12 +14,10 @@ class ProductsController < ApplicationController
                                INNER JOIN años_equipos      ae    ON pe.año_equipos     = ae.año_equipos
                                INNER JOIN prodestab         pres  ON pres.cod_prod      = productos.cod_prod
                                INNER JOIN establecimientos  esta  ON esta.cod_estab     = pres.cod_estab")
-                       .group("esta.nombre, me.nombre, mode.nombre, ae.año_equipos, productos.cod_prod, productos.descripcion, lp.nombre, se.nombre, me.nombre, mode.nombre")
-                       .having("me.nombre = ?", params[:marca_equipos])
-                       .having("mode.nombre = ?", params[:modelo_equipos])
-                       .having("ae.año_equipos = ?", params[:año_equipos])
-
-  
+                       .group("productos.cod_prod, productos.descripcion, lp.nombre, se.nombre, me.nombre, mode.nombre, ae.año_equipos, esta.nombre,
+                               sum(pres.exist_unidades)")
+                       .having("productos.cod_prod = ?", params[:cod_prod])
+                       
     respond_with(@products)
   end
   
